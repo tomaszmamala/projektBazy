@@ -158,7 +158,10 @@ class Hotel
         $stmt->bindParam(':stars', $stars);
         $stmt->execute();
 
-        $this->addPhotoForHotel($name, $imageUrl);
+        $hotelId = $conn->lastInsertId();
+
+
+        $this->addPhotoForHotel($hotelId, $imageUrl);
     }
 
     public function addRoom($hotelId, $roomName, $roomNumber, $roomType, $numPeople, $price)
