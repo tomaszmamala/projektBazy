@@ -17,7 +17,11 @@ SessionHelper::loggedIn();
 <body>
     <div class="menu">
         <a href="user_reservations.php">Twoje rezerwacje</a>
-        <a href="all_hotels_admin.php">Zarządzaj hotelami</a>
+        <?php
+            if ($_SESSION['user_role'] === 'ADMIN') {
+                echo '<a href="all_hotels_admin.php">Zarządzaj hotelami</a>';
+            }
+        ?>
         <a href="dashboard.php">Strona główna</a>
         <form action="logout.php" method="post">
             <input type="submit" value="Wyloguj">
