@@ -1,0 +1,54 @@
+CREATE TABLE Zdjecie (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255),
+    hotel_id INT,
+    FOREIGN KEY (hotel_id) REFERENCES Hotel(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Hotel (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nazwa VARCHAR(255),
+    kraj VARCHAR(255),
+    miasto VARCHAR(255),
+    gwiazdki INT
+);
+
+CREATE TABLE Pokoj (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nazwa varchar(50),
+    numer_pokoju VARCHAR(50),
+    typ_pokoju VARCHAR(50),
+    liczba_osob INT,
+    cena DECIMAL(10, 2),
+    hotel_id INT,
+    FOREIGN KEY (hotel_id) REFERENCES Hotel(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Uzytkownik (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    login VARCHAR(50),
+    haslo VARCHAR(255),
+    imie VARCHAR(50),
+    nazwisko VARCHAR(50),
+    rola VARCHAR(50)
+);
+
+CREATE TABLE Opinie (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tekst VARCHAR(500),
+    data DATE,
+    uzytkownikId INT,
+    hotelId INT,
+    FOREIGN KEY (uzytkownikId) REFERENCES Uzytkownik(id) ON DELETE CASCADE,
+    FOREIGN KEY (hotelId) REFERENCES Hotel(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Rezerwacje (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    uzytkownikId INT,
+    pokoj_id INT,
+    data_poczatek DATE,
+    data_koniec DATE,
+    FOREIGN KEY (uzytkownikId) REFERENCES Uzytkownik(id) ON DELETE CASCADE,
+    FOREIGN KEY (pokoj_id) REFERENCES Pokoj(id) ON DELETE CASCADE
+);
