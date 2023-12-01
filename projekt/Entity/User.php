@@ -32,7 +32,7 @@ class User
         $query = "INSERT INTO Uzytkownik (login, haslo, imie, nazwisko, rola) VALUES (:login, :password, :firstName, :lastName, :role)";
 
         $role = 'USER';
-        $role = 'ADMIN';
+        // $role = 'ADMIN';
 
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':login', $login);
