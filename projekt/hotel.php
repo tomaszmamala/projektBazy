@@ -12,27 +12,7 @@ SessionHelper::loggedIn();
 
 <head>
     <title>Hotel</title>
-    <style>
-        .reviews {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-        }
-
-        .reviews h3 {
-            margin-bottom: 10px;
-        }
-
-        .reviews ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .reviews li {
-            margin-bottom: 15px;
-        }
-    </style>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/hotel.css">
 </head>
 
 <body>
@@ -44,7 +24,6 @@ SessionHelper::loggedIn();
         <a href="dashboard.php">Strona główna</a>
     </div>
 
-
     <?php
     $hotel = new Hotel();
     $user = new User();
@@ -55,12 +34,14 @@ SessionHelper::loggedIn();
     if (!$selectedHotel) {
         echo "<p>Nie znaleziono hotelu o podanym ID.</p>";
     } else {
+        echo '<div id="hotel-info">';
         echo "<h2>{$selectedHotel['nazwa']}</h2>";
         echo "<p>Kraj: {$selectedHotel['kraj']}</p>";
         echo "<p>Miasto: {$selectedHotel['miasto']}</p>";
         echo "<p>Gwiazdki: {$selectedHotel['gwiazdki']}</p>";
+        echo "<p>Opis: {$selectedHotel['opis']}</p>"; // Dodane miejsce na opis
         // echo `<img src="{$selectedHotel['zdjecie']}" />`; tu trzeba wyjac zdjecia dla tego hotelu i je wyswietlic wszystkie
-    
+        echo '</div>';
 
         echo '<div class="reviews">';
         echo '<h3>Opinie:</h3>';
@@ -116,7 +97,6 @@ SessionHelper::loggedIn();
                 ?>
             </select><br>
 
-
             <label for="startDate">Data rozpoczęcia:</label>
             <input type="date" id="startDate" name="startDate" min="<?php echo date('Y-m-d'); ?>" required><br>
 
@@ -141,5 +121,7 @@ SessionHelper::loggedIn();
     }
     ?>
 </body>
+
+
 
 </html>

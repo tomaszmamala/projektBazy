@@ -1,0 +1,98 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    background-color: #333;
+    padding: 15px;
+    text-align: right;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    
+}
+
+.menu form {
+    display: inline-block;
+}
+
+.menu input[type="submit"] {
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0;
+    margin: 0 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu input[type="submit"]:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    color: #333;
+    margin-top: 20px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hotels-list {
+    list-style: none;
+    padding: 0;
+}
+
+.hotels-list li {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 20px; /* Zwiększono padding */
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.hotels-list li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.hotels-list li p {
+    margin-bottom: 15px;
+    font-size: 18px; /* Zwiększono rozmiar czcionki opisu */
+}
+
+.hotels-list li img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 10px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+.hotels-list li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.hotels-list li a:hover {
+    text-decoration: underline;
+}

@@ -24,20 +24,19 @@ $userReservations = $reservation->getUserReservations($userId);
 <head>
     <meta charset="UTF-8">
     <title>Twoje rezerwacje</title>
-
+    <link rel="stylesheet" href="styles/user_reservations.css">
 </head>
 
-<body>
-    <h1>Twoje rezerwacje</h1>
-    <div class="menu">
+<body> 
+    <div class="menu">      
+        <a href="user_reservations.php">Twoje rezerwacje</a>
+        <a href="dashboard.php">Strona główna</a>
         <form action="logout.php" method="post">
             <input type="submit" value="Wyloguj">
         </form>
-        <a href="user_reservations.php">Twoje rezerwacje</a>
-        <a href="dashboard.php">Strona główna</a>
     </div>
 
-
+    <h1>Twoje rezerwacje</h1>
     <?php if (!empty($userReservations)): ?>
         <ul>
             <?php foreach ($userReservations as $res):

@@ -10,18 +10,18 @@ SessionHelper::loggedIn();
 <html>
 
 <head>
-    <title>Logowanie i Rejestracja</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Edytowanie hotelu</title>
+    <link rel="stylesheet" href="styles/edit_hotel.css">
 </head>
 
 <body>
-    <div class="menu">
-        <form action="logout.php" method="post">
-            <input type="submit" value="Wyloguj">
-        </form>
+    <div class="menu">        
         <a href="user_reservations.php">Twoje rezerwacje</a>
         <a href="all_hotels_admin.php">Zarządzaj hotelami</a>
         <a href="dashboard.php">Strona główna</a>
+        <form action="logout.php" method="post">
+            <input type="submit" value="Wyloguj">
+        </form>
     </div>
 
     <?php
