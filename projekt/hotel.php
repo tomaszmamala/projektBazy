@@ -101,7 +101,7 @@ SessionHelper::loggedIn();
                 $availableRooms = $hotel->getRoomsForHotel($hotelId);
             
                 foreach ($availableRooms as $room) {
-                    echo "<option value='" . $room['id'] . "'>" . $room['nazwa'] . " - nr" . $room['numer_pokoju'] . " - " . $room['typ_pokoju'] . "</option>";
+                    echo "<option value='" . $room['id'] . "' data-price='" . $room['cena'] . "'>" . $room['nazwa'] . " - nr" . $room['numer_pokoju'] . " - " . $room['typ_pokoju'] . " - " . $room['cena'] . "zł</option>";
                 }
                 ?>
             </select><br>
@@ -111,7 +111,7 @@ SessionHelper::loggedIn();
 
             <label for="endDate">Data zakończenia:</label>
             <input type="date" id="endDate" name="endDate" min="<?php echo date('Y-m-d'); ?>" required><br>
-
+            <p id="totalPrice"></p>
             <input class="send-form" type="submit" value="Zarezerwuj">
         </form>
 
@@ -146,6 +146,37 @@ SessionHelper::loggedIn();
 
         document.querySelector('#hotel-images img').src = images[currentImage]['url'];
     }
+</script>
+
+<script>
+    //skrypt do wyswietlania ceny za caly pobyt
+    const roomSelect = document.getElementById('room');
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+
+    function calculateTotalPrice() {
+        const selectedRoom = roomSelect.options[roomSelect.selectedIndex];
+        const roomPrice = parseFloat(selectedRoom.getAttribute('data-price'));
+
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+
+        if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
+            const numOfDays = Math.ceil((endDate - startDate) / (1000 * 3600 * 24)) +1; // Oblicz liczbę dni
+
+            const totalPrice = roomPrice * numOfDays; // Oblicz całkowitą cenę
+            console.log(totalPrice <= 0)
+            if (totalPrice <= 0 ) {
+                document.getElementById('totalPrice').innerText = `Błędny zakres dat!`;
+            } else if (!isNaN(totalPrice)) {
+                document.getElementById('totalPrice').innerText = `Cena za pobyt: ${totalPrice.toFixed(2)} zł`;
+            }
+        }
+    }
+
+    roomSelect.addEventListener('change', calculateTotalPrice);
+    startDateInput.addEventListener('change', calculateTotalPrice);
+    endDateInput.addEventListener('change', calculateTotalPrice);
 </script>
 
 

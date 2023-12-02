@@ -55,7 +55,7 @@ $userReservations = $reservation->getUserReservations($userId);
                     <?php echo $res['data_poczatek']; ?><br>
                     Data zakończenia:
                     <?php echo $res['data_koniec']; ?><br>
-                    <!-- Tutaj możesz wyświetlić inne informacje o rezerwacji -->
+                    
                 </li>
             <?php endforeach; ?>
         </ul>
