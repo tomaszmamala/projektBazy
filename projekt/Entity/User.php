@@ -59,7 +59,7 @@ class User
         if ($result) {
             return $result['login'];
         } else {
-            return null; // Lub możesz obsłużyć brak danych w inny sposób
+            return null;
         }
     }
 

@@ -3,7 +3,6 @@ require_once 'Entity\Hotel.php';
 use Entity\Hotel;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Pobranie danych z formularza
     $hotelId = $_POST['hotelId'];
     $roomName = $_POST['roomName'];
     $roomNumber = $_POST['roomNumber'];
@@ -11,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numPeople = $_POST['numPeople'];
     $price = $_POST['price'];
 
-    // Inicjalizacja obiektu klasy Hotel
     $hotel = new Hotel();
 
     $hotel->addRoom($hotelId, $roomName, $roomNumber, $roomType, $numPeople, $price);

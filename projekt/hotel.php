@@ -45,15 +45,13 @@ SessionHelper::loggedIn();
         echo "<p>Kraj: {$selectedHotel['kraj']}</p>";
         echo "<p>Miasto: {$selectedHotel['miasto']}</p>";
         echo "<p>Gwiazdki: {$selectedHotel['gwiazdki']}</p>";
-        echo "<p>Opis: {$selectedHotel['opis']}</p>"; // Dodane miejsce na opis
-        // echo `<img src="{$selectedHotel['zdjecie']}" />`; tu trzeba wyjac zdjecia dla tego hotelu i je wyswietlic wszystkie
+        echo "<p>Opis: {$selectedHotel['opis']}</p>";
         echo '<div id="hotel-images">';
-        $images = $hotel->getAllPhotosForHotel($hotelId); // Pobierz zdjęcia dla danego hotelu
+        $images = $hotel->getAllPhotosForHotel($hotelId);
 
         if ($images) {
-            echo '<img src="' . $images[0]['url'] . '" alt="Hotel Image">'; // Wyświetl pierwsze zdjęcie
+            echo '<img src="' . $images[0]['url'] . '" alt="Hotel Image">';
 
-            // Dodaj przyciski nawigacyjne, jeśli jest więcej niż jedno zdjęcie
             if (count($images) > 1) {
                 echo '<div id="prev-image" onclick="changeImage(-1)">❮</div>';
                 echo '<div id="next-image" onclick="changeImage(1)">❯</div>';
@@ -66,7 +64,9 @@ SessionHelper::loggedIn();
 
         echo '<div class="reviews">';
         echo '<h3>Opinie:</h3>';
-        $opinions = $hotel->getOpinionsByHotelId($hotelId); // Pobranie opinii dla danego hotelu
+
+        $opinions = $hotel->getOpinionsByHotelId($hotelId);
+
         if ($opinions) {
             echo '<ul>';
             foreach ($opinions as $opinion) {
@@ -97,8 +97,8 @@ SessionHelper::loggedIn();
             <label for="room">Wybierz pokój:</label>
             <select id="room" name="roomId" required>
                 <?php
-                // Pobierz dostępne pokoje z bazy danych (to jest przykładowy kod, dostosuj go do swojej logiki)
-                $availableRooms = $hotel->getRoomsForHotel($hotelId); // Metoda do pobrania dostępnych pokoi z bazy
+                
+                $availableRooms = $hotel->getRoomsForHotel($hotelId);
             
                 foreach ($availableRooms as $room) {
                     echo "<option value='" . $room['id'] . "'>" . $room['nazwa'] . " - nr" . $room['numer_pokoju'] . " - " . $room['typ_pokoju'] . "</option>";
