@@ -8,10 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = $_POST['city'];
     $stars = $_POST['stars'];
     $imageUrl = $_POST['imageUrl'];
+    $description = $_POST['description'];
 
     $hotel = new Hotel();
 
-    $hotel->addHotel($name, $country, $city, $stars, $imageUrl);
+    $hotel->addHotel($name, $country, $city, $stars, $imageUrl, $description);
 
     $newUrl = 'all_hotels_admin.php?' . http_build_query(['message' => 'added']);
     header("Location: $newUrl");

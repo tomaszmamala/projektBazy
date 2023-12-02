@@ -11,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = $_POST['city'];
     $stars = $_POST['stars'];
     $imageUrl = $_POST['imageUrl'];
-
+    $description = $_POST['description'];
     $hotel = new Hotel();
 
-    $hotel->editHotel($hotelId, $name, $country, $city, $stars);
+    $hotel->editHotel($hotelId, $name, $country, $city, $stars, $description);
     $hotel->addPhotoForHotel($hotelId, $imageUrl);
 
     $newUrl = 'edit_hotel.php?' . http_build_query(['message' => 'edited', 'id' => $hotelId]);

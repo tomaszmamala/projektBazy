@@ -67,21 +67,23 @@ SessionHelper::loggedIn();
 
         // Dodawanie nowego hotelu
         echo "<div class='add-hotel-container'>";
-            echo "<h2>Dodaj nowy hotel:</h2>";
-            echo "<form action='add_hotel.php' method='POST'>";
-            echo "<label for='name'>Nazwa:</label><br>";
-            echo "<input type='text' name='name' id='name'><br>";
-            echo "<label for='country'>Kraj:</label><br>";
-            echo "<input type='text' name='country' id='country'><br>";
-            echo "<label for='city'>Miasto:</label><br>";
-            echo "<input type='text' name='city' id='city'><br>";
-            echo "<label for='stars'>Gwiazdki:</label><br>";
-            echo "<input type='number' name='stars' id='stars'><br>";
-            echo "<label for='imageUrl'>Zdjęcie (Url):</label><br>";
-            echo "<input type='text' name='imageUrl' id='imageUrl'><br>";
-            echo "<input class='send-form' type='submit' value='Dodaj hotel'>";
-            echo "</form>";
-            echo "</div>";
+        echo "<h2>Dodaj nowy hotel:</h2>";
+        echo "<form action='add_hotel.php' method='POST'>";
+        echo "<label for='name'>Nazwa:</label><br>";
+        echo "<input type='text' name='name' id='name' required><br>";
+        echo "<label for='country'>Kraj:</label><br>";
+        echo "<input type='text' name='country' id='country' required><br>";
+        echo "<label for='city'>Miasto:</label><br>";
+        echo "<input type='text' name='city' id='city' required><br>";
+        echo "<label for='stars'>Gwiazdki:</label><br>";
+        echo "<input type='number' name='stars' id='stars' required><br>";
+        echo "<label for='description'>Opis:</label><br>";
+        echo "<textarea name='description' id='description' required></textarea><br>";
+        echo "<label for='imageUrl'>Zdjęcie (Url):</label><br>";
+        echo "<input type='text' name='imageUrl' id='imageUrl'><br>";
+        echo "<input class='send-form' type='submit' value='Dodaj hotel'>";
+        echo "</form>";
+        echo "</div>";
         } else {
             echo "Nie masz uprawnień do przeglądania hoteli";
         }

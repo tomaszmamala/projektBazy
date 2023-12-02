@@ -103,3 +103,6 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     text-decoration: underline;
 }
+textarea {
+    width: 100%;
+}

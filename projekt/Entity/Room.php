@@ -48,5 +48,33 @@ class Room
 
         return count($existingReservations) === 0; // Jeśli brak rezerwacji, pokój jest dostępny
     }
+
+    public function getMaxRoomPrice($hotelId)
+{
+    $conn = $this->db->getConnection();
+
+    $query = "SELECT MAX(cena) as max_price FROM Pokoj WHERE hotel_id = :hotelId";
+    $statement = $conn->prepare($query);
+    $statement->bindParam(':hotelId', $hotelId);
+    $statement->execute();
+
+    $result = $statement->fetch(\PDO::FETCH_ASSOC);
+
+    return ($result) ? $result['max_price'] : null;
+}
+
+public function getMinRoomPrice($hotelId)
+{
+    $conn = $this->db->getConnection();
+
+    $query = "SELECT MIN(cena) as min_price FROM Pokoj WHERE hotel_id = :hotelId";
+    $statement = $conn->prepare($query);
+    $statement->bindParam(':hotelId', $hotelId);
+    $statement->execute();
+
+    $result = $statement->fetch(\PDO::FETCH_ASSOC);
+
+    return ($result) ? $result['min_price'] : null;
+}
 }
 ?>

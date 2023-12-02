@@ -124,15 +124,16 @@ class Hotel
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function editHotel($hotelId, $name, $country, $city, $stars)
+    public function editHotel($hotelId, $name, $country, $city, $stars, $description)
     {
         $conn = $this->db->getConnection();
-        $query = "UPDATE Hotel SET nazwa = :name, kraj = :country, miasto = :city, gwiazdki = :stars WHERE id = :hotelId";
+        $query = "UPDATE Hotel SET nazwa = :name, kraj = :country, miasto = :city, gwiazdki = :stars, opis = :description WHERE id = :hotelId";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':country', $country);
         $stmt->bindParam(':city', $city);
         $stmt->bindParam(':stars', $stars);
+        $stmt->bindParam(':description', $description);
         $stmt->bindParam(':hotelId', $hotelId);
         $stmt->execute();
     }
@@ -147,19 +148,19 @@ class Hotel
         $stmtHotel->execute();
     }
 
-    public function addHotel($name, $country, $city, $stars, $imageUrl)
+    public function addHotel($name, $country, $city, $stars, $imageUrl, $description)
     {
         $conn = $this->db->getConnection();
-        $query = "INSERT INTO Hotel (nazwa, kraj, miasto, gwiazdki) VALUES (:name, :country, :city, :stars)";
+        $query = "INSERT INTO Hotel (nazwa, kraj, miasto, gwiazdki, opis) VALUES (:name, :country, :city, :stars, :description)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':country', $country);
         $stmt->bindParam(':city', $city);
         $stmt->bindParam(':stars', $stars);
+        $stmt->bindParam(':description', $description);
         $stmt->execute();
 
         $hotelId = $conn->lastInsertId();
-
 
         $this->addPhotoForHotel($hotelId, $imageUrl);
     }

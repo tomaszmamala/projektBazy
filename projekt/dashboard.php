@@ -1,7 +1,9 @@
 <?php
 include('helpers/SessionHelper.php');
 require_once 'Entity/Hotel.php';
+require_once 'Entity/Room.php';  // Dodane dołączenie klasy Room
 use Entity\Hotel;
+use Entity\Room;  // Dodane dołączenie klasy Room
 
 SessionHelper::loggedIn();
 ?>
@@ -34,6 +36,7 @@ SessionHelper::loggedIn();
         <ul class="hotels-list">
             <?php
             $hotel = new Hotel();
+            $room = new Room();  // Dodane utworzenie obiektu klasy Room
 
             $hotels = $hotel->getAllHotels();
 
@@ -45,6 +48,17 @@ SessionHelper::loggedIn();
                 echo '<a href="hotel.php?id=' . $h['id'] . '">' . $h['nazwa'] . '</a>';
                 echo '<img src="'. $img["url"] .'"/>';
                 echo '<p>' . $h['opis'] . '</p>';
+                
+                // Dodajemy wyświetlanie widełek cenowych
+                $minPrice = $room->getMinRoomPrice($h['id']);
+                $maxPrice = $room->getMaxRoomPrice($h['id']);
+                
+                if ($minPrice !== null && $maxPrice !== null) {
+                    echo '<p>Widełki cenowe: ' . $minPrice . ' - ' . $maxPrice . ' PLN</p>';
+                } else {
+                    echo '<p>Brak informacji o cenach.</p>';
+                }
+                
                 echo '</li>';
             }
             ?>
