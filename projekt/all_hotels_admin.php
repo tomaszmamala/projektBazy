@@ -12,6 +12,7 @@ SessionHelper::loggedIn();
 <head>
     <title>Admin Panel</title>
     <link rel="stylesheet" href="styles/all_hotels_admin.css">
+    <link rel="stylesheet" href="styles/menu_bar.css">
 </head>
 
 <body>
@@ -78,7 +79,7 @@ SessionHelper::loggedIn();
             echo "<input type='number' name='stars' id='stars'><br>";
             echo "<label for='imageUrl'>Zdjęcie (Url):</label><br>";
             echo "<input type='text' name='imageUrl' id='imageUrl'><br>";
-            echo "<input type='submit' value='Dodaj hotel'>";
+            echo "<input class='send-form' type='submit' value='Dodaj hotel'>";
             echo "</form>";
             echo "</div>";
         } else {

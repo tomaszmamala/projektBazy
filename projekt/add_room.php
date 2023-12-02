@@ -12,6 +12,7 @@ SessionHelper::loggedIn();
 <head>
     <title>Dodawanie pokoju</title>
     <link rel="stylesheet" href="styles/add_room.css">
+    <link rel="stylesheet" href="styles/menu_bar.css">
 </head>
 
 <body>
@@ -59,7 +60,7 @@ SessionHelper::loggedIn();
         echo "Typ pokoju: <input type='text' name='roomType'><br>";
         echo "Liczba osób: <input type='number' name='numPeople'><br>";
         echo "Cena: <input type='number' name='price'><br>";
-        echo "<input type='submit' value='Dodaj pokój'>";
+        echo "<input class='send-form' type='submit' value='Dodaj pokój'>";
         echo "</form>";
 
     } else {

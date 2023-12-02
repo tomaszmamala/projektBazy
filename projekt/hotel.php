@@ -13,15 +13,21 @@ SessionHelper::loggedIn();
 <head>
     <title>Hotel</title>
     <link rel="stylesheet" href="styles/hotel.css">
+    <link rel="stylesheet" href="styles/menu_bar.css">
 </head>
 
 <body>
     <div class="menu">
+        <a href="user_reservations.php">Twoje rezerwacje</a>
+        <?php
+            if ($_SESSION['user_role'] === 'ADMIN') {
+                echo '<a href="all_hotels_admin.php">Zarządzaj hotelami</a>';
+            }
+        ?>
+        <a href="dashboard.php">Strona główna</a>
         <form action="logout.php" method="post">
             <input type="submit" value="Wyloguj">
         </form>
-        <a href="user_reservations.php">Twoje rezerwacje</a>
-        <a href="dashboard.php">Strona główna</a>
     </div>
 
     <?php
@@ -41,6 +47,21 @@ SessionHelper::loggedIn();
         echo "<p>Gwiazdki: {$selectedHotel['gwiazdki']}</p>";
         echo "<p>Opis: {$selectedHotel['opis']}</p>"; // Dodane miejsce na opis
         // echo `<img src="{$selectedHotel['zdjecie']}" />`; tu trzeba wyjac zdjecia dla tego hotelu i je wyswietlic wszystkie
+        echo '<div id="hotel-images">';
+        $images = $hotel->getAllPhotosForHotel($hotelId); // Pobierz zdjęcia dla danego hotelu
+
+        if ($images) {
+            echo '<img src="' . $images[0]['url'] . '" alt="Hotel Image">'; // Wyświetl pierwsze zdjęcie
+
+            // Dodaj przyciski nawigacyjne, jeśli jest więcej niż jedno zdjęcie
+            if (count($images) > 1) {
+                echo '<div id="prev-image" onclick="changeImage(-1)">❮</div>';
+                echo '<div id="next-image" onclick="changeImage(1)">❯</div>';
+            }
+        } else {
+            echo '<p>Brak zdjęć.</p>';
+        }
+        echo '</div>';
         echo '</div>';
 
         echo '<div class="reviews">';
@@ -66,21 +87,9 @@ SessionHelper::loggedIn();
         <form action="add_opinion.php" method="post">
             <input type="hidden" name="hotelId" value="' . $hotelId . '">
             <textarea name="opinionText" placeholder="Twoja opinia" required></textarea><br><br>
-            <input type="submit" value="Dodaj opinię">
+            <input class="send-form" type="submit" value="Dodaj opinię">
         </form>
         ';
-
-        // Formularz rezerwacji
-        // echo '
-        // <h3>Rezerwacja:</h3>
-        // <form action="make_reservation.php" method="post">
-        //     <input type="hidden" name="hotelId" value="' . $hotelId . '">
-        //     Data początkowa: <input type="date" name="startDate" required><br><br>
-        //     Data końcowa: <input type="date" name="endDate" required><br><br>
-        //     Liczba osób: <input type="number" name="numPeople" required><br><br>
-        //     <input type="submit" value="Zarezerwuj">
-        // </form>
-        // ';
         ?>
 
         <form action="make_reservation.php" method="post">
@@ -103,7 +112,7 @@ SessionHelper::loggedIn();
             <label for="endDate">Data zakończenia:</label>
             <input type="date" id="endDate" name="endDate" min="<?php echo date('Y-m-d'); ?>" required><br>
 
-            <input type="submit" value="Zarezerwuj">
+            <input class="send-form" type="submit" value="Zarezerwuj">
         </form>
 
         <?php
@@ -121,7 +130,23 @@ SessionHelper::loggedIn();
     }
     ?>
 </body>
+<script>
+    // Nowy skrypt do obsługi zmiany obrazu
+    let currentImage = 0;
+    const images = <?php echo json_encode($images); ?>;
 
+    function changeImage(offset) {
+        currentImage += offset;
+
+        if (currentImage < 0) {
+            currentImage = images.length - 1;
+        } else if (currentImage >= images.length) {
+            currentImage = 0;
+        }
+
+        document.querySelector('#hotel-images img').src = images[currentImage]['url'];
+    }
+</script>
 
 
 </html>

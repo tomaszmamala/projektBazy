@@ -12,6 +12,7 @@ SessionHelper::loggedIn();
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/menu_bar.css">
 </head>
 
 <body>

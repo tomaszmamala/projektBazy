@@ -1,53 +1,51 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.menu {
-    background-color: #333;
-    padding: 15px;
-    text-align: right;
-    box-sizing: border-box;
-}
-
-.menu a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.menu form {
-    display: inline-block;
-}
-
-.menu input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.menu input[type="submit"]:hover {
-    text-decoration: underline;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
-.add-hotel-container {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 20px;
+#hotel-info {
     background-color: #f9f9f9;
-    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 20px;
+    margin: 0 auto;
+    position: relative; /* Dodane dla pozycjonowania przycisków */
+}
+
+#hotel-images {
+    max-width: 500px; /* Nowa sekcja na zdjęcia */
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hotel-images img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#prev-image, #next-image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#prev-image {
+    left: 10px;
+}
+
+#next-image {
+    right: 10px;
 }
 
 table {
@@ -70,19 +68,13 @@ th {
     color: #fff;
 }
 
-h2 {
-    margin-top: 20px;
-}
-
 form {
-    margin-top: 20px;
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
 
 form input {
-    margin-bottom: 10px;
     width: 100%;
     padding: 8px;
 }
@@ -101,13 +93,14 @@ form input[type="submit"]:hover {
 }
 
 .reviews {
-    margin-top: 20px;
+    margin-top: 40px; /* Zwiększony odstęp od góry */
     border-top: 1px solid #ccc;
-    padding-top: 20px;
+    padding-top: 40px; /* Zwiększony odstęp na górze */
+    padding-bottom: 40px; /* Zwiększony odstęp na dole */
 }
 
 .reviews h3 {
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Zwiększony odstęp na dole */
 }
 
 .reviews ul {
@@ -116,34 +109,11 @@ form input[type="submit"]:hover {
 }
 
 .reviews li {
-    margin-bottom: 15px;
-}
-h2 {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.reviews {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-}
-
-.reviews h3 {
-    margin-bottom: 10px;
-}
-
-.reviews ul {
-    list-style: none;
-    padding: 0;
-}
-
-.reviews li {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Zwiększony odstęp na dole */
 }
 
 .reviews form {
-    margin-top: 20px;
+    margin-top: 40px; /* Zwiększony odstęp od góry */
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -151,5 +121,10 @@ h2 {
 
 .reviews form textarea {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Zwiększony odstęp na dole */
+}
+
+.send-form {
+    margin-top: 40px; /* Zwiększony odstęp od góry */
+    margin-bottom: 20px; /* Zwiększony odstęp na dole */
 }

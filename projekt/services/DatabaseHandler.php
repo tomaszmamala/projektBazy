@@ -4,8 +4,8 @@ namespace Services;
 class DatabaseHandler
 {
     private $host = '127.0.0.1';
-    private $username = 'root';
-    private $password = '';
+    private $username = 'marcin';
+    private $password = '1';
     private $dbname = 'hotele2';
     private $conn;
 

@@ -12,6 +12,7 @@ SessionHelper::loggedIn();
 <head>
     <title>Edytowanie hotelu</title>
     <link rel="stylesheet" href="styles/edit_hotel.css">
+    <link rel="stylesheet" href="styles/menu_bar.css">
 </head>
 
 <body>
@@ -43,7 +44,7 @@ SessionHelper::loggedIn();
             echo "Miasto: <input type='text' name='city' value='" . $selectedHotel['miasto'] . "'><br>";
             echo "Gwiazdki: <input type='number' name='stars' value='" . $selectedHotel['gwiazdki'] . "'><br>";
             echo "Dodaj zdjęcie: <input type='text' name='imageUrl' value=''><br>";
-            echo "<input type='submit' value='Zapisz zmiany'>";
+            echo "<input class='send-form' type='submit' value='Zapisz zmiany'>";
             echo "</form>";
 
             if (isset($_GET['message']) && $_GET['message'] === 'edited') {

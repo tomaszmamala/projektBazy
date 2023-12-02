@@ -25,11 +25,17 @@ $userReservations = $reservation->getUserReservations($userId);
     <meta charset="UTF-8">
     <title>Twoje rezerwacje</title>
     <link rel="stylesheet" href="styles/user_reservations.css">
+    <link rel="stylesheet" href="styles/menu_bar.css">
 </head>
 
 <body> 
     <div class="menu">      
         <a href="user_reservations.php">Twoje rezerwacje</a>
+        <?php
+            if ($_SESSION['user_role'] === 'ADMIN') {
+                echo '<a href="all_hotels_admin.php">Zarządzaj hotelami</a>';
+            }
+        ?>
         <a href="dashboard.php">Strona główna</a>
         <form action="logout.php" method="post">
             <input type="submit" value="Wyloguj">
