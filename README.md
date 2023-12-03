@@ -1,5 +1,5 @@
 # projektBazy
-Aby projekt poprawnie działał, należy zaimportować plik "struktura kaskadowa.txt" do bazy danych.
+Aby projekt poprawnie działał, należy zaimportować plik "struktura bayz.txt" do bazy danych.
 W tym imporcie jest jeden użytkownik z uprawnieniami admina
 LOGIN: admin
 HASŁO: 123
