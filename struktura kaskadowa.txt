@@ -139,6 +139,4 @@ INSERT INTO Pokoj (nazwa, numer_pokoju, typ_pokoju, liczba_osob, cena, hotel_id)
   ("Apartament Różany", "211", "Suite", 3, 580.00, 10),
   ("Pokój z ogrodem", "312", "Double", 2, 450.00, 10);
 
-LOGIN: admin
-HASŁO: 123
 INSERT INTO uzytkownik (login, haslo, imie, nazwisko, rola) VALUES ("admin", "$2y$10$q27Aq5HRzhLQ6Yoi4wDTo.Y86WTbZNk1XMyZXWA8jAXuOAdh7FxT6", "Jan", "Nowak", "ADMIN");
