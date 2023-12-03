@@ -49,9 +49,15 @@ SessionHelper::loggedIn();
                 echo "<td>" . $hotelData['miasto'] . "</td>";
                 echo "<td>" . $hotelData['gwiazdki'] . "</td>";
                 echo "<td>
+                        <div style='display: inline;'>
                             <a href='edit_hotel.php?id=" . $hotelData['id'] . "'>Edytuj</a> | 
-                            <a href='delete_hotel.php?id=" . $hotelData['id'] . "'>Usuń</a> |
-                            <a href='add_room.php?id=" . $hotelData['id'] . "'>Dodaj pokój</a></td>";
+                            <a href='add_room.php?id=" . $hotelData['id'] . "'>Dodaj pokój</a>
+                            <form action='delete_hotel.php' method='POST' style='display: inline;'>
+                                <input name='hotelId' type='text' value=" . $hotelData['id'] . " hidden /> 
+                                <button type='submit'>Usuń</button>
+                            </form></td>     
+                        </div>    
+                        ";
                             
                 echo "</tr>";
             }
