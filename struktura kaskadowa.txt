@@ -86,3 +86,59 @@ INSERT INTO zdjecie (url, hotel_id) VALUES
 ("https://cf.bstatic.com/xdata/images/hotel/max1024x768/352147007.jpg?k=179dedf697db5b2f14ecd4a7cff4aa6bbe1f96bfc3ec7fe106425294ed4ecbaf&o=&hp=1", 9),
 ("https://cf.bstatic.com/xdata/images/hotel/max1024x768/217773809.jpg?k=bce7315d8057b10d7e43d373d05c214d3cf1a8d30ae1c1c942233abb8b6f716a&o=&hp=1", 10),
 ("https://cf.bstatic.com/xdata/images/hotel/max1024x768/217773912.jpg?k=0cc91bfd8bbabe100047b6f5e727a5a7762c17f6ee2c05fb983ebd905a9d5d23&o=&hp=1", 10);
+
+
+INSERT INTO Pokoj (nazwa, numer_pokoju, typ_pokoju, liczba_osob, cena, hotel_id) VALUES
+  -- Hotel Nadmorski
+  ("Pokój Standardowy", "101", "Double", 2, 300.00, 1),
+  ("Apartament Deluxe", "202", "Suite", 3, 500.00, 1),
+  ("Pokój z widokiem na morze", "303", "Double", 2, 400.00, 1),
+
+  -- Hotel Górski
+  ("Pokój Superior", "102", "Double", 2, 350.00, 2),
+  ("Apartament Górski", "203", "Suite", 4, 600.00, 2),
+  ("Pokój Panoramiczny", "304", "Double", 2, 450.00, 2),
+
+  -- Hotel Morski Zew
+  ("Pokój z balkonem", "103", "Double", 2, 380.00, 3),
+  ("Apartament Morski", "204", "Suite", 3, 550.00, 3),
+  ("Pokój Rodzinny", "305", "Family", 4, 480.00, 3),
+
+  -- Hotel Krakowski
+  ("Pokój Standardowy", "104", "Double", 2, 320.00, 4),
+  ("Apartament Królewski", "205", "Suite", 3, 520.00, 4),
+  ("Pokój Single", "306", "Single", 1, 250.00, 4),
+
+  -- Hotel Zielony Park
+  ("Pokój Deluxe", "105", "Double", 2, 370.00, 5),
+  ("Apartament Parkowy", "206", "Suite", 3, 580.00, 5),
+  ("Pokój z tarasem", "307", "Double", 2, 420.00, 5),
+
+  -- Hotel Panorama
+  ("Pokój Executive", "106", "Double", 2, 430.00, 6),
+  ("Apartament Panoramiczny", "207", "Suite", 4, 650.00, 6),
+  ("Pokój VIP", "308", "Double", 2, 500.00, 6),
+
+  -- Hotel Nad Jezioro
+  ("Pokój z widokiem na jezioro", "107", "Double", 2, 340.00, 7),
+  ("Apartament Nad Jezioro", "208", "Suite", 3, 520.00, 7),
+  ("Pokój z dostępem do plaży", "309", "Double", 2, 450.00, 7),
+
+  -- Hotel Zakątek Spa
+  ("Pokój Relaksacyjny", "108", "Double", 2, 400.00, 8),
+  ("Apartament Spa", "209", "Suite", 3, 600.00, 8),
+  ("Pokój z jacuzzi", "310", "Double", 2, 480.00, 8),
+
+  -- Hotel Wschodzące Słońce
+  ("Pokój Górski", "109", "Double", 2, 360.00, 9),
+  ("Apartament Bieszczadzki", "210", "Suite", 4, 550.00, 9),
+  ("Pokój z kominkiem", "311", "Double", 2, 420.00, 9),
+
+  -- Hotel Różany Sad
+  ("Pokój romantyczny", "110", "Double", 2, 380.00, 10),
+  ("Apartament Różany", "211", "Suite", 3, 580.00, 10),
+  ("Pokój z ogrodem", "312", "Double", 2, 450.00, 10);
+
+LOGIN: admin
+HASŁO: 123
+INSERT INTO uzytkownik (login, haslo, imie, nazwisko, rola) VALUES ("admin", "$2y$10$q27Aq5HRzhLQ6Yoi4wDTo.Y86WTbZNk1XMyZXWA8jAXuOAdh7FxT6", "Jan", "Nowak", "ADMIN");
