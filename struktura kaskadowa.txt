@@ -3,7 +3,8 @@ CREATE TABLE Hotel (
     nazwa VARCHAR(255),
     kraj VARCHAR(255),
     miasto VARCHAR(255),
-    gwiazdki INT
+    gwiazdki INT,
+    opis VARCHAR(500)
 );
 
 CREATE TABLE Zdjecie (
